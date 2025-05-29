@@ -149,6 +149,7 @@ h3 {
 }
 
 .nav-links .install-btn {
+    display: none; /* Hide by default on desktop */
     background-color: var(--primary-color);
     color: white;
     border: none;
@@ -156,7 +157,6 @@ h3 {
     border-radius: 0.5rem;
     font-weight: 500;
     cursor: pointer;
-    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     transition: var(--transition);
@@ -164,12 +164,25 @@ h3 {
     margin-left: 2rem;
 }
 
-.nav-links .install-btn:hover {
-    background-color: var(--secondary-color);
+/* Show install button on mobile devices */
+@media (max-width: 768px) {
+    .nav-links .install-btn {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Only show the install button if JavaScript has determined it's installable */
+    .nav-links .install-btn[style*="display: inline-flex"] {
+        display: flex !important;
+    }
 }
 
-.nav-links .install-btn i {
-    font-size: 1em;
+/* Additional media query for tablets in portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .nav-links .install-btn[style*="display: inline-flex"] {
+        display: flex !important;
+    }
 }
 
 .mobile-menu {
