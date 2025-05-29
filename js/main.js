@@ -3,7 +3,7 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 
 mobileMenu.addEventListener('click', () => {
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    navLinks.classList.toggle('active');
     mobileMenu.classList.toggle('active');
 });
 
@@ -18,7 +18,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
             // Close mobile menu if open
             if (window.innerWidth <= 768) {
-                navLinks.style.display = 'none';
+                navLinks.classList.remove('active');
                 mobileMenu.classList.remove('active');
             }
         }
