@@ -14,7 +14,12 @@ if (!fs.existsSync(targetDir)) {
 // Generate icons for each size
 sizes.forEach(size => {
     sharp(sourceFile)
-        .resize(size, size)
+        .resize(size, size, {
+            fit: 'contain',
+            background: { r: 37, g: 99, b: 235, alpha: 1 } // #2563eb background
+        })
+        .flatten({ background: { r: 37, g: 99, b: 235, alpha: 1 } })
+        .toFormat('png', { quality: 100 })
         .toFile(path.join(targetDir, `icon-${size}x${size}.png`))
         .then(info => console.log(`Generated ${size}x${size} icon`))
         .catch(err => console.error(`Error generating ${size}x${size} icon:`, err));

@@ -13,12 +13,28 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="DredLabs">
     
+    <!-- iOS Splash Screen Images -->
+    <!-- iPhone XS Max (1242px x 2688px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" href="./images/splash/splash-1242x2688.png">
+    <!-- iPhone XR (828px x 1792px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" href="./images/splash/splash-828x1792.png">
+    <!-- iPhone X/XS (1125px x 2436px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="./images/splash/splash-1125x2436.png">
+    <!-- iPhone 8, 7, 6s, 6 (750px x 1334px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="./images/splash/splash-750x1334.png">
+    <!-- iPad Pro 12.9" (2048px x 2732px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" href="./images/splash/splash-2048x2732.png">
+    <!-- iPad Pro 11" (1668px x 2388px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" href="./images/splash/splash-1668x2388.png">
+    <!-- iPad Mini, Air (1536px x 2048px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="./images/splash/splash-1536x2048.png">
+    
     <!-- PWA Icons -->
-    <link rel="icon" type="image/png" sizes="196x196" href="images/icons/icon-192x192.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="196x196" href="./images/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="./images/icons/icon-192x192.png">
     
     <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="./manifest.json">
     
     <!-- Existing Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
@@ -32,7 +48,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo"> <img src="images/logo.svg" alt="DredLabs Logo"> <span>DredLabs</span> </a>
+            <a href="javascript:void(0)" onclick="window.location.reload(true)" class="logo"> <img src="images/logo.svg" alt="DredLabs Logo"> <span>DredLabs</span> </a>
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#services">Services</a>
@@ -201,7 +217,7 @@
         // Register Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('./sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registration successful');
                     })
