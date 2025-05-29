@@ -53,7 +53,10 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="javascript:void(0)" onclick="window.location.reload(true)" class="logo"> <img src="images/logo.svg" alt="DredLabs Logo"> <span>DredLabs</span> </a>
+            <a href="javascript:void(0)" onclick="window.location.reload(true)" class="logo"> 
+                <img src="images/logo.svg" alt="DredLabs Logo"> 
+                <span>DredLabs</span> 
+            </a>
             <div class="nav-links">
                 <a href="#home"><i class="fas fa-home"></i> Home</a>
                 <a href="#services"><i class="fas fa-cogs"></i> Services</a>
@@ -61,7 +64,7 @@
                 <a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a>
                 <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
                 <button id="installButton" class="install-btn" style="display: none;">
-                    <i class="fas fa-download"></i> Install App
+                    <i class="fas fa-download"></i> Download App
                 </button>
             </div>
             <button class="mobile-menu" aria-label="Menu">
@@ -223,28 +226,35 @@
     <script src="js/main.js"></script>
     <script>
         // Mobile Menu Toggle
-        const mobileMenuButton = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenuButton.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
+            if (mobileMenuButton && navLinks) {
+                mobileMenuButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    mobileMenuButton.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !mobileMenuButton.contains(e.target) && navLinks.classList.contains('active')) {
-                mobileMenuButton.classList.remove('active');
-                navLinks.classList.remove('active');
+                // Close mobile menu when clicking a link
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenuButton.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!navLinks.contains(e.target) && 
+                        !mobileMenuButton.contains(e.target) && 
+                        navLinks.classList.contains('active')) {
+                        mobileMenuButton.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
             }
-        });
-
-        // Close mobile menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuButton.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
         });
 
         // Register Service Worker
