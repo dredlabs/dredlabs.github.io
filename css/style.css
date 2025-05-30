@@ -178,7 +178,9 @@ h3 {
     transform: translateY(-2px);
 }
 
+
 /* Mobile Navigation */
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -195,11 +197,9 @@ h3 {
         overflow-y: auto;
         z-index: 999;
     }
-
     .nav-links.active {
         display: flex !important;
     }
-
     .nav-links a,
     .nav-links .install-btn {
         margin: 0.8rem 0;
@@ -208,7 +208,6 @@ h3 {
         font-size: 1.1rem;
         justify-content: center;
     }
-
     .nav-links .install-btn {
         margin-top: 1rem;
         padding: 1rem;
@@ -218,17 +217,14 @@ h3 {
         border-radius: 0.5rem;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-
     /* Make sure the install button is visible when JavaScript sets it */
     .nav-links .install-btn[style*="display: inline-flex"],
     .nav-links .install-btn[style*="display: flex"] {
         display: flex !important;
     }
-
     .nav-links .install-btn:active {
         transform: translateY(1px);
     }
-
     .mobile-menu {
         display: block;
         background: none;
@@ -239,7 +235,6 @@ h3 {
         width: 40px;
         height: 40px;
     }
-
     .mobile-menu span {
         display: block;
         width: 25px;
@@ -248,29 +243,29 @@ h3 {
         margin: 5px auto;
         transition: var(--transition);
     }
-
     .mobile-menu.active span:nth-child(1) {
         transform: rotate(45deg) translate(6px, 6px);
     }
-
     .mobile-menu.active span:nth-child(2) {
         opacity: 0;
     }
-
     .mobile-menu.active span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
     }
 }
 
+
 /* Additional media query for tablets */
-@media (min-width: 769px) and (max-width: 1024px) {
+
+@media (min-width: 0px) and (max-width: 1024px) {
     .nav-links .install-btn[style*="display: inline-flex"] {
         display: inline-flex !important;
     }
 }
 
 .mobile-menu {
-    display: none;  /* Hide by default in desktop */
+    display: none;
+    /* Hide by default in desktop */
     background: none;
     border: none;
     cursor: pointer;
@@ -562,7 +557,8 @@ h3 {
     .nav-links {
         display: none;
         position: fixed;
-        top: 72px; /* Height of navbar */
+        top: 72px;
+        /* Height of navbar */
         left: 0;
         right: 0;
         background-color: var(--background);
@@ -587,7 +583,8 @@ h3 {
         justify-content: center;
     }
     .mobile-menu {
-        display: block;  /* Only show in mobile mode */
+        display: block;
+        /* Only show in mobile mode */
     }
     .about-content,
     .contact-content {
